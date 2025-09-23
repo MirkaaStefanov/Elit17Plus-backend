@@ -11,8 +11,8 @@ import java.time.LocalDateTime;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler(InsufficientStockException.class)
-    public ResponseEntity<ExceptionResponse> handleInsufficientStockException(InsufficientStockException ex) {
+    @ExceptionHandler(VisitException.class)
+    public ResponseEntity<ExceptionResponse> handleInsufficientStockException(VisitException ex) {
         ExceptionResponse response = ExceptionResponse.builder()
                 .message(ex.getMessage())
                 .dateTime(LocalDateTime.now())

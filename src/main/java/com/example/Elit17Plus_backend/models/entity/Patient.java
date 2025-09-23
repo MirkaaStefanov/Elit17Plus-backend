@@ -43,10 +43,6 @@ public class Patient {
     @Column(nullable = false)
     private String surname;
 
-    // История на посещенията
-    @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Visit> visits = new ArrayList<>();
-
     private LocalDate lastVisitDate;
 
     @ManyToMany
