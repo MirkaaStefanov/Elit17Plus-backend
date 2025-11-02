@@ -45,6 +45,9 @@ public class Patient {
 
     private LocalDate lastVisitDate;
 
+    @Column(columnDefinition = "TEXT")
+    private String description;
+
     @ManyToMany
     @JoinTable(
             name = "patient_benefits",

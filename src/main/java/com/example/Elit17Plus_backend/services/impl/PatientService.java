@@ -51,6 +51,7 @@ public class PatientService {
         existing.setEgn(dto.getEgn());
         existing.setName(dto.getName());
         existing.setSurname(dto.getSurname());
+        existing.setDescription(dto.getDescription());
         existing.setLastVisitDate(dto.getLastVisitDate());
 
         if (dto.getImage() != null) {

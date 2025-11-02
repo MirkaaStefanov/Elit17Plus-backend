@@ -35,6 +35,7 @@ public class PatientDTO {
     private LocalDate lastVisitDate;
     private List<BenefitDTO> benefits = new ArrayList<>();
     private String image;
+    private String description;
     @JsonIgnore
     private transient MultipartFile imageFile;
 }
