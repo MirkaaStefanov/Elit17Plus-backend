@@ -1,5 +1,6 @@
 package com.example.Elit17Plus_backend.models.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -14,6 +15,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Getter
@@ -34,7 +36,8 @@ public class Video {
     @JoinColumn(name = "patient_id")
     private Patient patient;
 
+    @Column(name = "file_key")
     private String key;
 
-    private Date uploadDate;
+    private LocalDate uploadDate;
 }
