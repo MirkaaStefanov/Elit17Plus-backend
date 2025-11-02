@@ -8,6 +8,7 @@ server:
     forgottenPasswordUrl: ${server.frontend.baseUrl}/forgotten-password
   backend:
     baseUrl: ${BACKEND_URL}
+
 spring:
   config:
     import: "classpath:rate-limiter.yaml"
@@ -55,6 +56,27 @@ spring:
             starttls:
               enable: true
             timeout: 8000
-application:
-upload:
-  directory: server/src/main/resources/static/uploads/
+
+  # --- R2 Configuration for S3Client (Auto-configured) ---
+  cloud:
+    aws:
+      credentials:
+        access-key: ${R2_ACCESS_KEY_ID}
+        secret-key: ${R2_SECRET_KEY}
+      s3:
+        # Use your R2 Account ID variable here
+        endpoint: https://${R2_ACCOUNT_ID}.r2.cloudflarestorage.com
+        path-style-access-enabled: true
+      region:
+        static: auto # R2 requires 'auto'
+
+  # --- Custom R2 Properties (for S3Presigner bean) ---
+  r2:
+    bucket-name: ${R2_BUCKET_NAME} # The name of your bucket
+
+    # These properties are read by the R2Properties class
+    client:
+      account-id: ${R2_ACCOUNT_ID}
+      access-key: ${R2_ACCESS_KEY_ID}
+      secret-key: ${R2_SECRET_KEY}
+
